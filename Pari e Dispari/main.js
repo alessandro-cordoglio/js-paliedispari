@@ -5,15 +5,22 @@ Stabiliamo se la somma dei due numeri è pari o dispari (usando una funzione)
 Dichiariamo chi ha vinto. */
 
 /* FUNCTIONS */
-
-   
+function randomNumGen(min, max) { // min and max included 
+    return Math.floor(Math.random() * (max - min + 1) + min)
+}
+function check(number) {
+    if (number%2===0) {
+        return true
+    }
+    return false;
+}
     
 
   
 
-/* VARIABILI DI SUPPORTO */
+/*  variabili di supporto  */
 const scelta=prompt("Pari o Dispari?")
-const userNumber=prompt("Inserisci un numero da 1 a 5")
+const userNumber=Number(prompt("Inserisci un numero da 1 a 5"))
 
 //check pari o dispari
 if (scelta.toLowerCase()== "pari") {
@@ -36,7 +43,12 @@ if (scelta.toLowerCase()== "pari") {
         location.reload()
     }
 }
+//variabili di supporto
+const GenNumber=randomNumGen(1,5)
+const sum= userNumber + GenNumber
 
-
-const chosenNumber=pari(userNumber)
-console.log(chosenNumber)
+if ((scelta==="pari" && check(sum)) || (scelta==="dispari" && !check(sum))) {
+    alert("hai vinto!")
+}else{
+    alert("hai perso")
+}
